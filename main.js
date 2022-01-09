@@ -10,6 +10,10 @@ const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thurday', 'Friday', 'Saturd
 function load () {
     const dt = new Date();
 
+    if (nav !== 0) {//<-- calling setMonth equal to the current month
+        dt.setMonth(new Date().getMonth() + nav);
+    }
+  
     const day = dt.getDate();
     const month = dt.getMonth();
     const year = dt.getFullYear();
@@ -17,7 +21,7 @@ function load () {
     const firstDayOfMonth = new Date(year, month, 1);
     const daysInMonth = new Date(year, month + 1, 0).getDate(); // <-- last parameter "0" means last day of the previous month;
 
-    const dateString = firstDayOfMonth.toLocaleDateString('en-us', { //<-- getting weekday in string
+    const dateString = firstDayOfMonth.toLocaleDateString('en-us', { //<-- getting weekday in string;
         weekday: 'long',
         year: 'numeric',
         month: 'numeric',
@@ -25,6 +29,12 @@ function load () {
       });
 
       const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);
+      
+
+      document.getElementById('monthDisplay').innerText = 
+        `${dt.toLocaleDateString('en-us', { month: 'long'})} ${year}`;
+
+    calendar.innerHTML = ''; //<--clearing content in order to render previous/next month calendar;
       
       for (let i = 1; i <= paddingDays + daysInMonth; i++) {
           const daySquare = document.createElement('div');
@@ -40,7 +50,20 @@ function load () {
 
           calendar.appendChild(daySquare);
       }
+}
+
+function initButtons () { // <-- can change incre./decrem. nav value and call load() again;
+    document.getElementById('nextButton').addEventListener('click', () => {
+        nav++;
+        load();
+    });
+
+    document.getElementById('backButton').addEventListener('click', () => {
+        nav--;
+        load();
+    });
 
 }
 
+initButtons();
 load();
