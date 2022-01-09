@@ -6,19 +6,26 @@
 # Calendar with Add/Delete Event Function
 _Student Project_
 
-Pull request are welcome, but priority for real-life students! Thank you for your cooperation!
+Pull request are welcome, but priority for real-life students! Thank you for your cooperation! NPM used only for static-server dependency.
 
-Site published at: 
+Site published at: [18-calendar](https://mantasurb.github.io/18-calendar/)
 
 Design: [Calendar](https://binaries.templates.cdn.office.net/support/templates/en-us/lt02809250_quantized.png)
+
+## How To Start Project
+
+- Clone respository
+- Open project folder in editor
+- Open terminal and run `npm install`
+- Run `npm run dev` in terminal to start static-server
 
 ## Project features
 
 - Month days starting at correct weekday
 - Week day label at the top
-- Add & delete event from day
-- Ability to check previous and next months calendar
-- localStorage is used to store data
+- Add & Delete event from day
+- Ability to check previous and next month calendar
+- sessionStorage is used to store data
 
 ## Authors
 
