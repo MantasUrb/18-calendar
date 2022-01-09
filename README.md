@@ -18,6 +18,7 @@ Design: [Calendar](https://binaries.templates.cdn.office.net/support/templates/e
 - Open project folder in editor
 - Open terminal and run `npm install`
 - Run `npm run dev` in terminal to start static-server
+- Go to http://localhost:9080 in your browser
 
 ## Project features
 
